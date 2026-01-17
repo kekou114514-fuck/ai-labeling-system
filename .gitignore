@@ -1,0 +1,22 @@
+# === 1. 忽略数据目录 (保留文件夹结构) ===
+project_data/*
+!project_data/images/.gitkeep
+!project_data/audio/.gitkeep
+!project_data/video_frames/.gitkeep
+!project_data/videos/.gitkeep
+
+# === 2. 忽略数据库和环境配置 (最重要) ===
+ls_data/
+env
+.env
+__pycache__/
+*.pyc
+
+# === 3. 忽略超大模型文件 ===
+# 忽略 models/whisper 文件夹下的所有内容
+models/whisper/*
+# 但保留 models/whisper 文件夹本身（可选，防止文件夹消失）
+!models/whisper/.gitkeep
+
+# (可选) 如果你的 runs 文件夹很大，也忽略掉
+runs/
