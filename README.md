@@ -57,7 +57,19 @@ Bash
         在 run_host.sh 的菜单中选择 11 (如有)；
 
         或者新建终端运行：docker-compose restart ai_toolbox。
+### 3.3 📥 手动下载 Whisper 模型 (重要)
+由于 GitHub 限制大文件上传，请您手动下载语音识别模型：
 
+1.  **下载地址**：
+    * 您可以从 HuggingFace 或 OpenAI 官方下载 `large-v3.pt` (或您使用的其他版本)。
+    * [点击这里下载官方模型 (示例链接)](https://openaipublic.azureedge.net/main/whisper/models/e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb/large-v3.pt)
+
+2.  **存放位置**：
+    请将下载好的 `.pt` 文件放入项目的 `models/whisper/` 目录下。
+    ```bash
+    # 也就是放在这里：
+    AI_Labeling_System/models/whisper/large-v3.pt
+    ```
 4. 日常使用指南
 启动方式
 
