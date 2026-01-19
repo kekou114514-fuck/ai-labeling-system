@@ -1,0 +1,8 @@
+path: /app/scripts/train_yolo_video/datasets
+train: images/train
+val: images/val
+nc: 3
+names:
+  0: Person
+  1: Car
+  2: Defect

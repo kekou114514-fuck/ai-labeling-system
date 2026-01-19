@@ -1,0 +1,11 @@
+path: /app/scripts/yolo_workspace/datasets
+train: images/train
+val: images/val
+nc: 6
+names:
+  0: Product_A
+  1: Product_B
+  2: Defect
+  3: person
+  4: Component
+  5: Corner_Point

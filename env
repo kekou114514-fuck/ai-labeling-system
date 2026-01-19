@@ -1,0 +1,13 @@
+# Label Studio API KEY
+# 请在 Label Studio 网页右上角 -> Account & Settings -> 获取 Access Token
+LS_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6ODA3NTkwMjY1OSwiaWF0IjoxNzY4NzAyNjU5LCJqdGkiOiJjOTNjODAyN2VkODI0OTU1OTQyMDJiZjlhZTczNWM5MyIsInVzZXJfaWQiOiIxIn0.oxTmuzw1ZNQhcJcbR6QaTAQmOxIA8QdTIahW16TYMl8
+
+# Docker 路径映射
+DATA_ROOT=/data
+
+# 数据库配置 (与 docker-compose.yml 保持一致)
+POSTGRE_HOST=db
+POSTGRE_PORT=5432
+POSTGRE_NAME=postgres
+POSTGRE_USER=postgres
+POSTGRE_PASSWORD=password123

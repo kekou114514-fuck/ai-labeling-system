@@ -1,0 +1,114 @@
+[
+    {
+        "id": 87,
+        "annotations": [
+            {
+                "id": 23,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "q88R6",
+                        "type": "labels",
+                        "value": {
+                            "end": 4.825321555932204,
+                            "start": 0,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 9.066687
+                    },
+                    {
+                        "id": "arqI9",
+                        "type": "labels",
+                        "value": {
+                            "end": 8.313690961016949,
+                            "start": 5.532215796610169,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 9.066687
+                    },
+                    {
+                        "id": "arqI9",
+                        "type": "textarea",
+                        "value": {
+                            "end": 8.313690961016949,
+                            "text": [
+                                "你好"
+                            ],
+                            "start": 5.532215796610169,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 9.066687
+                    },
+                    {
+                        "id": "jpGLJ",
+                        "type": "labels",
+                        "value": {
+                            "end": 9.051319733898305,
+                            "start": 8.528832686440678,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 9.066687
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T11:20:42.591803Z",
+                "updated_at": "2026-01-19T11:30:16.891191Z",
+                "draft_created_at": "2026-01-19T11:20:32.147565Z",
+                "lead_time": 597.212,
+                "prediction": {},
+                "result_count": 3,
+                "unique_id": "43108c01-f915-4300-bc15-9b3926c55556",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 87,
+                "project": 5,
+                "updated_by": 1,
+                "parent_prediction": null,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/video_audio/VID20251209113833.wav"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T11:20:11.736576Z",
+        "updated_at": "2026-01-19T11:30:17.263755Z",
+        "allow_skip": true,
+        "inner_id": 1,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 5,
+        "updated_by": 1,
+        "comment_authors": []
+    }
+]

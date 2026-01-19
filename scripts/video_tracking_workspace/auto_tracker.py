@@ -3,130 +3,173 @@ import cv2
 import json
 import uuid
 import sys
-import random
 import glob
 from collections import defaultdict
 from ultralytics import YOLO
 
-# === Docker 适配配置 ===
+# === ⚙️ 路径配置 ===
 DATA_ROOT = os.getenv('DATA_ROOT', '/data')
-# 视频存放目录
 VIDEO_DIR = os.path.join(DATA_ROOT, "videos")
-# 结果输出目录
 OUTPUT_DIR = os.path.join(DATA_ROOT, "outputs")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-LS_URL_PREFIX = "/data/local-files/?d=/data/"
+# Label Studio 前缀
+LS_URL_PREFIX = "/data/local-files/?d=data/"
 
-# XML 定义
-XML_BOX_NAME = "box"
-XML_LABEL_NAME = "labels"
-LABEL_MOVING = "Object_Moving"
-LABEL_STATIC = "Object_Static"
-MOVEMENT_SENSITIVITY = 0.5 
+# 核心参数
+TRACK_CONF = 0.1      
+TRACK_IOU = 0.5       
+IMG_SIZE = 1280       
 
-def run_tracking(video_path, output_json):
-    # 优先加载离线模型
-    local_seg = "/app/models/yolov8n-seg.pt"
-    local_det = "/app/models/yolov8n.pt"
+# 类别映射
+CLASS_MAP = {
+    0: "Person",
+    1: "bicycle",
+    2: "Car", 3: "Car", 5: "Car", 7: "Car"
+}
+
+def run_tracking_logic(video_path):
+    # 1. 🔥 模型加载逻辑 (优先查找 models 目录)
+    # 在 Docker 容器中，宿主机的 models 目录通常映射为 /app/models
+    model_candidates = [
+        "/app/models/yolov8m.pt",       # 优先：统一模型库
+        "/app/models/yolov8n.pt",       # 备选：Nano 模型
+        "yolov8m.pt"                    # 再次：当前目录或在线下载
+    ]
     
-    if os.path.exists(local_seg):
-        print(f"🧠 加载分割模型: {local_seg}")
-        model = YOLO(local_seg)
-    elif os.path.exists(local_det):
-        print(f"⚠️ 未找到seg模型，使用检测模型: {local_det}")
-        model = YOLO(local_det)
-    else:
-        print("⚠️ 未找到本地模型，下载 yolov8n.pt")
-        model = YOLO("yolov8n.pt")
+    model_path = "yolov8m.pt" # 默认值
+    for p in model_candidates:
+        if os.path.exists(p):
+            model_path = p
+            break
+            
+    print(f"🧠 加载模型: {model_path}")
     
+    try:
+        model = YOLO(model_path)
+    except Exception as e:
+        print(f"⚠️ 加载失败: {e}，尝试在线下载 yolov8m.pt...")
+        model = YOLO("yolov8m.pt")
+    
+    # 2. 读取视频信息
     cap = cv2.VideoCapture(video_path)
-    if not cap.isOpened(): 
-        print(f"❌ 无法打开视频: {video_path}")
-        return
+    if not cap.isOpened(): return None
     fps = cap.get(cv2.CAP_PROP_FPS)
     orig_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     orig_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     cap.release()
     
-    print(f"🔥 开始追踪: {os.path.basename(video_path)}")
-    results = model.track(source=video_path, persist=True, stream=True, verbose=False)
-    tracks_data = defaultdict(list) 
+    print(f"🎬 正在深度追踪: {os.path.basename(video_path)} ...")
+    
+    # 3. 运行 ByteTrack
+    results = model.track(
+        source=video_path, 
+        persist=True, 
+        conf=TRACK_CONF, 
+        iou=TRACK_IOU,
+        imgsz=IMG_SIZE,
+        tracker="bytetrack.yaml", 
+        verbose=False,
+        stream=True
+    )
+    
+    # 4. 整理轨迹数据
+    tracks_data = defaultdict(list)
+    track_id_to_label = {}
 
-    # 数据采集
     for frame_idx, r in enumerate(results):
-        if not r.boxes or r.boxes.id is None: continue
+        if not r.boxes: continue
+        
         boxes = r.boxes.xywh.cpu().numpy()
-        track_ids = r.boxes.id.int().cpu().tolist()
-        img_h, img_w = r.orig_shape[0], r.orig_shape[1]
+        
+        if r.boxes.id is not None:
+            track_ids = r.boxes.id.int().cpu().tolist()
+        else:
+            track_ids = [-1] * len(boxes)
 
-        for i, (box, track_id) in enumerate(zip(boxes, track_ids)):
-            x_center, y_center, width, height = box
-            # 归一化
-            x = (x_center - width / 2) / img_w * 100
-            y = (y_center - height / 2) / img_h * 100
-            w = width / img_w * 100
-            h = height / img_h * 100
+        cls_ids = r.boxes.cls.int().cpu().tolist()
+
+        for box, track_id, cls_id in zip(boxes, track_ids, cls_ids):
+            label_name = CLASS_MAP.get(cls_id)
+            if not label_name: continue 
             
-            tracks_data[track_id].append({
+            if track_id != -1:
+                track_id_to_label[track_id] = label_name
+
+            x_c, y_c, w, h = box
+            
+            frame_data = {
                 "frame": frame_idx + 1,
-                "enabled": True,
+                "enabled": True, 
                 "rotation": 0,
-                "x": float(x), "y": float(y), "width": float(w), "height": float(h),
+                "x": float((x_c - w / 2) / orig_w * 100),
+                "y": float((y_c - h / 2) / orig_h * 100),
+                "width": float(w / orig_w * 100),
+                "height": float(h / orig_h * 100),
                 "time": float(frame_idx / fps) if fps > 0 else 0.0
-            })
+            }
+            
+            if track_id != -1:
+                tracks_data[track_id].append(frame_data)
 
-    # 生成标注
+    # 5. 生成 JSON
     ls_results = []
-    for track_id, sequence_data in tracks_data.items():
-        if not sequence_data: continue
-        
-        # 行为判定
-        first = sequence_data[0]
-        last = sequence_data[-1]
-        dist = ((last['x'] - first['x'])**2 + (last['y'] - first['y'])**2)**0.5
-        span = last['frame'] - first['frame']
-        
-        final_label = LABEL_STATIC
-        if span > 0:
-            speed = dist / span
-            if speed > (MOVEMENT_SENSITIVITY / 10.0):
-                final_label = LABEL_MOVING
+    print(f"📊 捕捉到 {len(tracks_data)} 条轨迹")
 
+    for track_id, sequence in tracks_data.items():
+        label = track_id_to_label.get(track_id, "Defect")
         shared_id = str(uuid.uuid4())[:8]
-        # 轨迹
+        
         ls_results.append({
-            "id": shared_id, "from_name": XML_BOX_NAME, "to_name": "video", "type": "videorectangle",
-            "value": {"sequence": sequence_data, "original_width": orig_w, "original_height": orig_h}
+            "id": shared_id, 
+            "from_name": "box", "to_name": "video", "type": "videorectangle",
+            "value": {
+                "sequence": sequence, 
+                "labels": [label],
+                "original_width": orig_w, "original_height": orig_h
+            }
         })
-        # 标签
         ls_results.append({
-            "id": shared_id, "from_name": XML_LABEL_NAME, "to_name": "video", "type": "labels",
-            "value": {"labels": [final_label], "sequence": sequence_data, "original_width": orig_w, "original_height": orig_h}
+            "id": shared_id, 
+            "from_name": "label", "to_name": "video", "type": "labels",
+            "value": {
+                "sequence": sequence,
+                "labels": [label], 
+                "original_width": orig_w, "original_height": orig_h
+            }
         })
 
-    # 封装
     rel_path = os.path.relpath(video_path, DATA_ROOT)
-    final_output = [{
+    if rel_path.startswith("/"): rel_path = rel_path[1:]
+    
+    return {
         "data": { "video": f"{LS_URL_PREFIX}{rel_path}" },
-        "annotations": [{"result": ls_results, "ground_truth": False}]
-    }]
-
-    with open(output_json, 'w', encoding='utf-8') as f:
-        json.dump(final_output, f, indent=2, ensure_ascii=False)
-    print(f"✅ 生成: {output_json}")
+        "predictions": [{
+            "model_version": "yolo_tracker_v2_aggressive", 
+            "score": 0.5,
+            "result": ls_results
+        }]
+    }
 
 if __name__ == "__main__":
-    if not os.path.exists(VIDEO_DIR):
-        print(f"❌ 视频目录不存在: {VIDEO_DIR}")
-        sys.exit(1)
-        
-    files = glob.glob(os.path.join(VIDEO_DIR, "*.mp4")) + glob.glob(os.path.join(VIDEO_DIR, "*.avi"))
+    extensions = ['*.mp4', '*.avi', '*.mov']
+    video_files = []
+    for ext in extensions:
+        video_files.extend(glob.glob(os.path.join(VIDEO_DIR, ext)))
     
-    if not files:
-        print(f"❌ 未找到视频文件")
+    if not video_files:
+        print(f"❌ 未找到视频文件: {VIDEO_DIR}")
+        sys.exit(0)
+
+    all_tasks = []
+    for v in video_files:
+        res = run_tracking_logic(v)
+        if res: all_tasks.append(res)
+    
+    if all_tasks:
+        out_file = os.path.join(OUTPUT_DIR, "pre_annotations_tracking.json")
+        with open(out_file, 'w', encoding='utf-8') as f:
+            json.dump(all_tasks, f, indent=2, ensure_ascii=False)
+        print(f"🚀 追踪完成！JSON 已保存: {out_file}")
     else:
-        for v_path in files:
-            fname = os.path.basename(v_path)
-            out_path = os.path.join(OUTPUT_DIR, f"track_{fname}.json")
-            run_tracking(v_path, out_path)
+        print("⚠️ 未生成任何结果。")

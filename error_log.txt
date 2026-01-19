@@ -1,0 +1,94 @@
+[0;34m=== 正在启动 AI 服务环境... ===[0m
+Recreating 24ef15dcfaf7_ai_toolbox_worker ... 
+label_studio_server is up-to-date
+
+ERROR: for 24ef15dcfaf7_ai_toolbox_worker  'ContainerConfig'
+
+ERROR: for ai_toolbox  'ContainerConfig'
+Traceback (most recent call last):
+  File "/usr/bin/docker-compose", line 33, in <module>
+    sys.exit(load_entry_point('docker-compose==1.29.2', 'console_scripts', 'docker-compose')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 81, in main
+    command_func()
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 203, in perform_command
+    handler(command, command_options)
+  File "/usr/lib/python3/dist-packages/compose/metrics/decorator.py", line 18, in wrapper
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 1186, in up
+    to_attach = up(False)
+                ^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/cli/main.py", line 1166, in up
+    return self.project.up(
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 697, in up
+    results, errors = parallel.parallel_execute(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/parallel.py", line 108, in parallel_execute
+    raise error_to_reraise
+  File "/usr/lib/python3/dist-packages/compose/parallel.py", line 206, in producer
+    result = func(obj)
+             ^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 679, in do
+    return service.execute_convergence_plan(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 579, in execute_convergence_plan
+    return self._execute_convergence_recreate(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 499, in _execute_convergence_recreate
+    containers, errors = parallel_execute(
+                         ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/parallel.py", line 108, in parallel_execute
+    raise error_to_reraise
+  File "/usr/lib/python3/dist-packages/compose/parallel.py", line 206, in producer
+    result = func(obj)
+             ^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 494, in recreate
+    return self.recreate_container(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 612, in recreate_container
+    new_container = self.create_container(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 330, in create_container
+    container_options = self._get_container_create_options(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 921, in _get_container_create_options
+    container_options, override_options = self._build_container_volume_options(
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 960, in _build_container_volume_options
+    binds, affinity = merge_volume_bindings(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 1548, in merge_volume_bindings
+    old_volumes, old_mounts = get_container_data_volumes(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/compose/service.py", line 1579, in get_container_data_volumes
+    container.image_config['ContainerConfig'].get('Volumes') or {}
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyError: 'ContainerConfig'
+[H[2J[3J[0;34m=======================================================[0m
+[0;34m       🚀 AI 智能标注交付系统 (Docker v3.0)[0m
+[0;34m=======================================================[0m
+   1. 📊 打开 Label Studio (http://localhost:8080)
+
+[0;32m[P1: 产品图片][0m
+   2. 📦 训练 (auto_yolo_manager.py)
+   3. 🖌️  推理 (yolo_to_ls.py)
+
+[0;32m[P4: 视频画面][0m
+   4. 🎬 训练 (auto_video_yolo.py)
+   5. 🖌️  推理 (yolo_to_ls.py)
+
+[0;32m[P2: 纯音频][0m
+   6. 📦 训练 (auto_train_manager.py)
+   7. 🎧 推理 (whisper_to_ls.py)
+
+[0;32m[P3: 视频语音][0m
+   8. 🎬 训练 (auto_video_whisper.py)
+   9. 🎧 推理 (whisper_to_ls.py)
+
+[0;32m[P8: 目标追踪][0m
+   10. ⚡ 自动追踪 (auto_tracker.py)
+
+   q. 退出
+👉 请选择: 

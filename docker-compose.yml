@@ -1,41 +1,60 @@
 version: '3.8'
 
 services:
-  # === 1. Label Studio 服务 ===
   label-studio:
     image: heartexlabs/label-studio:latest
     container_name: label_studio_server
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - '8080:8080'
     environment:
       - LABEL_STUDIO_LOCAL_FILES_SERVING_ENABLED=true
-      - LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/data
+      - LABEL_STUDIO_LOCAL_FILES_DOCUMENT_ROOT=/
       - LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK=false
       - LABEL_STUDIO_USERNAME=admin@example.com
       - LABEL_STUDIO_PASSWORD=password123
+      - DJANGO_DB=default
+      - POSTGRE_NAME=postgres
+      - POSTGRE_USER=postgres
+      - POSTGRE_PASSWORD=password123
+      - POSTGRE_PORT=5432
+      - POSTGRE_HOST=db
     volumes:
-      # 映射数据：宿主机 project_data -> 容器 /data
       - ./project_data:/data
-      # 持久化 LS 的配置和数据库
       - ./ls_data:/label-studio/data
+    depends_on:
+      - db
 
-  # === 2. AI 工具箱 (运行您的脚本) ===
+  db:
+    image: postgres:14-alpine
+    container_name: label_studio_db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=postgres
+    volumes:
+      - db_storage:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
   ai_toolbox:
     build: .
     container_name: ai_toolbox_worker
-    restart: "no"
+    restart: unless-stopped
+    command: ['tail', '-f', '/dev/null']
     environment:
-      # 告诉脚本 LS 在哪里
       - LS_URL=http://label-studio:8080
-      # 👇 注意：这里不再写 LS_API_KEY=${...}，而是通过下面的 env_file 加载
       - DATA_ROOT=/data
       - HF_ENDPOINT=https://hf-mirror.com
-    # 👇 新增：显式加载名为 "env" 的文件
     env_file:
       - env
     volumes:
       - ./project_data:/data
       - ./scripts:/app/scripts
       - ./models:/app/models
-    command: tail -f /dev/null
+    links:
+      - label-studio
+
+volumes:
+  db_storage:

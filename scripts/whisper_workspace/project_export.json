@@ -1,0 +1,848 @@
+[
+    {
+        "id": 27,
+        "annotations": [],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/%E6%9B%BE%E4%BE%AF%E4%B9%99clock1%E5%8F%B7.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.412091Z",
+        "updated_at": "2026-01-19T09:32:59.412118Z",
+        "allow_skip": true,
+        "inner_id": 4,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 28,
+        "annotations": [],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/%E6%9B%BE%E4%BE%AF%E4%B9%99clock2%E5%8F%B7.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.445449Z",
+        "updated_at": "2026-01-19T09:32:59.445476Z",
+        "allow_skip": true,
+        "inner_id": 5,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 29,
+        "annotations": [],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/%E6%A0%87%E5%87%86%E5%BD%95%E9%9F%B3%201.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.478827Z",
+        "updated_at": "2026-01-19T09:32:59.478852Z",
+        "allow_skip": true,
+        "inner_id": 6,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 24,
+        "annotations": [
+            {
+                "id": 7,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "FYBmK",
+                        "type": "labels",
+                        "value": {
+                            "end": 28.50595792372881,
+                            "start": 1.8580212711864406,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.848225
+                    },
+                    {
+                        "id": "FYBmK",
+                        "type": "textarea",
+                        "value": {
+                            "end": 28.50595792372881,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.8580212711864406,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 28.848225
+                    },
+                    {
+                        "id": "MWWyJ",
+                        "type": "labels",
+                        "value": {
+                            "end": 1.2712777118644067,
+                            "start": 0,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.848225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T09:34:05.941371Z",
+                "updated_at": "2026-01-19T09:34:05.941401Z",
+                "draft_created_at": "2026-01-19T09:33:26.902081Z",
+                "lead_time": 57.727,
+                "prediction": {},
+                "result_count": 2,
+                "unique_id": "e43ab2c7-5dd4-4f41-8b83-e79451fa7789",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 24,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": null,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/3D%E6%A8%A1%E5%9E%8B1%E5%8F%B7.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.296638Z",
+        "updated_at": "2026-01-19T09:34:06.095684Z",
+        "allow_skip": true,
+        "inner_id": 1,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    },
+    {
+        "id": 25,
+        "annotations": [
+            {
+                "id": 8,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "_XrGQ",
+                        "type": "labels",
+                        "value": {
+                            "end": 1.194924788135593,
+                            "start": 0.04779699152542373,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.200225
+                    },
+                    {
+                        "id": "FovLB",
+                        "type": "labels",
+                        "value": {
+                            "end": 27.817849067796608,
+                            "start": 1.4817067372881354,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.200225
+                    },
+                    {
+                        "id": "FovLB",
+                        "type": "textarea",
+                        "value": {
+                            "end": 27.817849067796608,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.4817067372881354,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 28.200225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T09:34:49.870308Z",
+                "updated_at": "2026-01-19T09:34:49.870335Z",
+                "draft_created_at": "2026-01-19T09:34:32.587605Z",
+                "lead_time": 34.395,
+                "prediction": {},
+                "result_count": 2,
+                "unique_id": "2933ab61-3088-4b8d-a4f4-8684d35bb2be",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 25,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": null,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/3D%E6%A8%A1%E5%9E%8B2%E5%8F%B7%281%29.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.345738Z",
+        "updated_at": "2026-01-19T09:34:50.005225Z",
+        "allow_skip": true,
+        "inner_id": 2,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    },
+    {
+        "id": 26,
+        "annotations": [
+            {
+                "id": 9,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "IetLb",
+                        "type": "labels",
+                        "value": {
+                            "end": 1.164416313559322,
+                            "start": 0,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 27.480225
+                    },
+                    {
+                        "id": "j47BU",
+                        "type": "labels",
+                        "value": {
+                            "end": 26.64184525423729,
+                            "start": 1.210992966101695,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 27.480225
+                    },
+                    {
+                        "id": "j47BU",
+                        "type": "textarea",
+                        "value": {
+                            "end": 26.64184525423729,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.210992966101695,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 27.480225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T09:35:16.233276Z",
+                "updated_at": "2026-01-19T09:35:16.233306Z",
+                "draft_created_at": "2026-01-19T09:35:09.490403Z",
+                "lead_time": 21.619,
+                "prediction": {},
+                "result_count": 2,
+                "unique_id": "098c473e-0f05-4ab9-8dd3-7ee36cea76fd",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 26,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": null,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "drafts": [],
+        "predictions": [],
+        "data": {
+            "audio": "/data/local-files/?d=data/audio/3D%E6%A8%A1%E5%9E%8B3%E5%8F%B7.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T09:32:59.378941Z",
+        "updated_at": "2026-01-19T09:35:16.371628Z",
+        "allow_skip": true,
+        "inner_id": 3,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 0,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    },
+    {
+        "id": 50,
+        "annotations": [],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            27
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/曾侯乙clock1号.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.282933Z",
+        "updated_at": "2026-01-19T10:02:24.282944Z",
+        "allow_skip": true,
+        "inner_id": 10,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 51,
+        "annotations": [],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            28
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/曾侯乙clock2号.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.283042Z",
+        "updated_at": "2026-01-19T10:02:24.283053Z",
+        "allow_skip": true,
+        "inner_id": 11,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 52,
+        "annotations": [],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            29
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/标准录音 1.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.283153Z",
+        "updated_at": "2026-01-19T10:02:24.283164Z",
+        "allow_skip": true,
+        "inner_id": 12,
+        "total_annotations": 0,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": null,
+        "comment_authors": []
+    },
+    {
+        "id": 47,
+        "annotations": [
+            {
+                "id": 10,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "feFA8yVT44",
+                        "type": "textarea",
+                        "value": {
+                            "text": [
+                                "你好"
+                            ]
+                        },
+                        "origin": "prediction",
+                        "to_name": "audio",
+                        "from_name": "transcription"
+                    },
+                    {
+                        "id": "_To11",
+                        "type": "labels",
+                        "value": {
+                            "end": 28.457062627118642,
+                            "start": 1.8580212711864406,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.848225
+                    },
+                    {
+                        "id": "_To11",
+                        "type": "textarea",
+                        "value": {
+                            "end": 28.457062627118642,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.8580212711864406,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 28.848225
+                    },
+                    {
+                        "id": "sAJri",
+                        "type": "labels",
+                        "value": {
+                            "end": 1.613544788135593,
+                            "start": 0.09779059322033898,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.848225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T10:02:58.109252Z",
+                "updated_at": "2026-01-19T10:02:58.109279Z",
+                "draft_created_at": "2026-01-19T10:02:38.334636Z",
+                "lead_time": 29.905,
+                "prediction": {
+                    "id": 24,
+                    "task": 47,
+                    "model": null,
+                    "score": null,
+                    "result": [
+                        {
+                            "type": "textarea",
+                            "value": {
+                                "text": [
+                                    "你好"
+                                ]
+                            },
+                            "to_name": "audio",
+                            "from_name": "transcription"
+                        }
+                    ],
+                    "cluster": null,
+                    "project": 3,
+                    "model_run": null,
+                    "neighbors": null,
+                    "created_at": "2026-01-19T10:02:24.290869Z",
+                    "updated_at": "2026-01-19T10:02:24.290892Z",
+                    "created_ago": "0 minutes",
+                    "mislabeling": 0.0,
+                    "model_version": "whisper_v1"
+                },
+                "result_count": 3,
+                "unique_id": "9f8ec5e0-9db5-43a7-a3aa-3f7e2bfcec36",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 47,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": 24,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            24
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/3D模型1号.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.282540Z",
+        "updated_at": "2026-01-19T10:02:58.244437Z",
+        "allow_skip": true,
+        "inner_id": 7,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    },
+    {
+        "id": 48,
+        "annotations": [
+            {
+                "id": 11,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "HNPQdeRfR7",
+                        "type": "textarea",
+                        "value": {
+                            "text": [
+                                "你好"
+                            ]
+                        },
+                        "origin": "prediction",
+                        "to_name": "audio",
+                        "from_name": "transcription"
+                    },
+                    {
+                        "id": "rSVYn",
+                        "type": "labels",
+                        "value": {
+                            "end": 27.722255084745765,
+                            "start": 1.2427217796610168,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.200225
+                    },
+                    {
+                        "id": "rSVYn",
+                        "type": "textarea",
+                        "value": {
+                            "end": 27.722255084745765,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.2427217796610168,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 28.200225
+                    },
+                    {
+                        "id": "xEU0j",
+                        "type": "labels",
+                        "value": {
+                            "end": 0.9559398305084745,
+                            "start": 0.19118796610169492,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 28.200225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T10:03:26.213786Z",
+                "updated_at": "2026-01-19T10:03:26.213809Z",
+                "draft_created_at": "2026-01-19T10:03:16.995588Z",
+                "lead_time": 21.216,
+                "prediction": {
+                    "id": 25,
+                    "task": 48,
+                    "model": null,
+                    "score": null,
+                    "result": [
+                        {
+                            "type": "textarea",
+                            "value": {
+                                "text": [
+                                    "你好"
+                                ]
+                            },
+                            "to_name": "audio",
+                            "from_name": "transcription"
+                        }
+                    ],
+                    "cluster": null,
+                    "project": 3,
+                    "model_run": null,
+                    "neighbors": null,
+                    "created_at": "2026-01-19T10:02:24.290955Z",
+                    "updated_at": "2026-01-19T10:02:24.290968Z",
+                    "created_ago": "1 minute",
+                    "mislabeling": 0.0,
+                    "model_version": "whisper_v1"
+                },
+                "result_count": 3,
+                "unique_id": "a23de4a6-2992-4453-811b-6aae40839d00",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 48,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": 25,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            25
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/3D模型2号(1).mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.282704Z",
+        "updated_at": "2026-01-19T10:03:26.361458Z",
+        "allow_skip": true,
+        "inner_id": 8,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    },
+    {
+        "id": 49,
+        "annotations": [
+            {
+                "id": 12,
+                "completed_by": 1,
+                "result": [
+                    {
+                        "id": "quWEO23aWG",
+                        "type": "textarea",
+                        "value": {
+                            "text": [
+                                "你好"
+                            ]
+                        },
+                        "origin": "prediction",
+                        "to_name": "audio",
+                        "from_name": "transcription"
+                    },
+                    {
+                        "id": "XvnSH",
+                        "type": "labels",
+                        "value": {
+                            "end": 26.82815186440678,
+                            "start": 1.0712630084745765,
+                            "labels": [
+                                "Speech"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 27.480225
+                    },
+                    {
+                        "id": "XvnSH",
+                        "type": "textarea",
+                        "value": {
+                            "end": 26.82815186440678,
+                            "text": [
+                                "When it comes to 3D modeling, it inevitably reminds people of the ancient technique of full form expansion, which is a process of displaying 3D solids on a 2D plane. Now, we only need to use digital touch screen all-in-one machines to personally experience the entire process of full form expansion technology and feel the awe inspiring wisdom of a thousand years ago."
+                            ],
+                            "start": 1.0712630084745765,
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "transcription",
+                        "original_length": 27.480225
+                    },
+                    {
+                        "id": "hxCF8",
+                        "type": "labels",
+                        "value": {
+                            "end": 0.791803093220339,
+                            "start": 0,
+                            "labels": [
+                                "Noise"
+                            ],
+                            "channel": 0
+                        },
+                        "origin": "manual",
+                        "to_name": "audio",
+                        "from_name": "label",
+                        "original_length": 27.480225
+                    }
+                ],
+                "was_cancelled": false,
+                "ground_truth": false,
+                "created_at": "2026-01-19T10:03:47.167427Z",
+                "updated_at": "2026-01-19T10:03:47.167442Z",
+                "draft_created_at": "2026-01-19T10:03:39.951998Z",
+                "lead_time": 17.981,
+                "prediction": {
+                    "id": 26,
+                    "task": 49,
+                    "model": null,
+                    "score": null,
+                    "result": [
+                        {
+                            "type": "textarea",
+                            "value": {
+                                "text": [
+                                    "你好"
+                                ]
+                            },
+                            "to_name": "audio",
+                            "from_name": "transcription"
+                        }
+                    ],
+                    "cluster": null,
+                    "project": 3,
+                    "model_run": null,
+                    "neighbors": null,
+                    "created_at": "2026-01-19T10:02:24.291022Z",
+                    "updated_at": "2026-01-19T10:02:24.291033Z",
+                    "created_ago": "1 minute",
+                    "mislabeling": 0.0,
+                    "model_version": "whisper_v1"
+                },
+                "result_count": 3,
+                "unique_id": "dd110d55-62bf-4882-bc34-37c19f7c1f80",
+                "import_id": null,
+                "last_action": null,
+                "bulk_created": false,
+                "task": 49,
+                "project": 3,
+                "updated_by": 1,
+                "parent_prediction": 26,
+                "parent_annotation": null,
+                "last_created_by": null
+            }
+        ],
+        "file_upload": "fa07e8b8-pre_annotations_audio.json",
+        "drafts": [],
+        "predictions": [
+            26
+        ],
+        "data": {
+            "audio": "/data/local-files/?d=/data/audio/3D模型3号.mp3"
+        },
+        "meta": {},
+        "created_at": "2026-01-19T10:02:24.282823Z",
+        "updated_at": "2026-01-19T10:03:47.334488Z",
+        "allow_skip": true,
+        "inner_id": 9,
+        "total_annotations": 1,
+        "cancelled_annotations": 0,
+        "total_predictions": 1,
+        "comment_count": 0,
+        "unresolved_comment_count": 0,
+        "last_comment_updated_at": null,
+        "project": 3,
+        "updated_by": 1,
+        "comment_authors": []
+    }
+]

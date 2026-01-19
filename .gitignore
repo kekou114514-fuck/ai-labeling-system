@@ -1,22 +1,40 @@
-# === 1. 忽略数据目录 (保留文件夹结构) ===
-project_data/*
-!project_data/images/.gitkeep
-!project_data/audio/.gitkeep
-!project_data/video_frames/.gitkeep
-!project_data/videos/.gitkeep
+# ============================
+# 1. 屏蔽模型文件 (含 whisper)
+# ============================
+# 您的截图显示 models 目录下有 whisper 文件夹和 .pt 文件
+models/
+*.pt
+*.pth
+*.bin
+*.onnx
 
-# === 2. 忽略数据库和环境配置 (最重要) ===
+# ============================
+# 2. 屏蔽项目数据 (project_data)
+# ============================
+# 截图显示这里全是图片、视频和音频
+project_data/
+
+# ============================
+# 3. 屏蔽 Label Studio 数据 (ls_data)
+# ============================
+# 这里面是数据库和上传的媒体文件，不能传
 ls_data/
-env
-.env
+
+# ============================
+# 4. 屏蔽训练产生的临时文件
+# ============================
+# 屏蔽 scripts 下各个工作区生成的 dataset 和 runs 目录
+scripts/**/dataset/
+scripts/**/datasets/
+scripts/**/runs/
+scripts/**/whisper-finetuned-model/
+scripts/**/outputs/
+
+# ============================
+# 5. 屏蔽系统和环境文件
+# ============================
 __pycache__/
 *.pyc
-
-# === 3. 忽略超大模型文件 ===
-# 忽略 models/whisper 文件夹下的所有内容
-models/whisper/*
-# 但保留 models/whisper 文件夹本身（可选，防止文件夹消失）
-!models/whisper/.gitkeep
-
-# (可选) 如果你的 runs 文件夹很大，也忽略掉
-runs/
+.DS_Store
+.env
+ls_env/
